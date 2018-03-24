@@ -1,0 +1,2 @@
+example file text
+heres the line breakthis line has been appendedthis line has been appendedthis line has been appendedthis line has been appended

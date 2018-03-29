@@ -61,7 +61,7 @@ for value,key in diction.items():
     
 for k in diction:
     print(diction[k])
-## continue keyword
+## continue keyword skips logic an returns to loop incrementer
 for letter in 'code':
     if letter == 'd':
         continue

@@ -23,6 +23,10 @@ def change_case(identifier, targetCase):
             if target == "Kebab":
                 return separator(identifier,"-")
 
+        if case == "Snake":
+            if target == "Camel":
+
+
                 
     def separator(string, sep):
         strToReturn = ""
@@ -34,9 +38,3 @@ def change_case(identifier, targetCase):
         return strToReturn
 
 
-
-    
-    
-
-
-change_case("snakeCase_", "snake")

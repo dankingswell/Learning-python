@@ -11,7 +11,9 @@ class Deck:
     def __repr__(self):
         return f"This deck contains {self.Count()} cards"
     
-    
+    def __iter__ (self):
+        return iter(self.Cards)
+
     def MakeDeck(self,num_of_decks):
         values = "A,2,3,4,5,6,7,8,9,10,J,Q,K".split(",")
         suits = "Hearts Clubs Spades Diamonds".split()
@@ -60,3 +62,5 @@ deck = Deck(2)
 # print(deck._deal(10))
 print(deck.DealHand(5))
 
+for x in deck:
+    print(x)

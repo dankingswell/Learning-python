@@ -75,6 +75,7 @@ import functools
 
 def example_decorator(func):
     @functools.wraps(func)
+    ## pass function that wrap will need to gather data from
     def WrapperNameChange():
         
         func()
@@ -109,3 +110,36 @@ def MyNameWillChange():
 
 MyNameWillChange()
 print(MyNameWillChange.__name__)
+
+
+##### Decorators that take arguments
+# decorator with arg requires additional step
+# follows patter add =  decorator(args)(func)
+# because of this we need to add an additional layer of wrapping
+
+def ensureSumIsTen(val):
+# when reaching this line the  function will be passed 10 and called
+
+    def inner(func):
+        # function is passed as the __call__ method is triggered and @ passes the function numbers in as an argument
+        # like so ensureSumIsTen(10) = inner(numbersin) the call method allows us to specify what we pass in as we call the function
+        # in this instance we give it the decorated function __call__(NumbersIn):
+        #   wrapper():
+        #       numbersin()
+        def wrapper(*args,**kwargs):
+            if args and func(*args) == val:
+                return("you pass")
+            elif kwargs:
+                return("kwargs, very sneaky")
+            else :
+                return "Fail"
+        return wrapper
+    return inner
+
+
+@ensureSumIsTen(10)
+
+def numbersIn(a,b):
+    return   a+b
+
+print(numbersIn(5,5))
